@@ -9,14 +9,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class EmployeeCsvReader {
-    /** Header: id,name,managerId,salary */
     public static Map<String, Employee> read(Path csvPath) throws IOException {
         Map<String, Employee> byId = new HashMap<>();
         try (BufferedReader br = Files.newBufferedReader(csvPath, StandardCharsets.UTF_8)) {
             String line; boolean first = true;
             while ((line = br.readLine()) != null) {
                 line = line.trim();
-                if (line.isEmpty() || line.startsWith("#")) continue;
+                if (line.isEmpty()) continue;
                 if (first) { first = false; continue; }
                 String[] p = line.split(",", -1);
                 if (p.length < 4) { System.err.println("WARN bad line: " + line); continue; }
