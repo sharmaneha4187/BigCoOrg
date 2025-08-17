@@ -39,11 +39,7 @@ public class OrgAnalyzer {
         this.salaryStrategy = Objects.requireNonNull(salaryStrategy);
         this.chainStrategy = Objects.requireNonNull(chainStrategy);
     }
-//
-//    public static OrgAnalyzer withDefaults() {
-//        return new OrgAnalyzer(new BoundedDirectAverageSalaryRule(1.2, 1.5),
-//                               new MaxManagersBetweenChainRule(4));
-//    }
+
 
     public static Optional<Employee> findCEO(Map<String, Employee> byId) {
         List<Employee> ceos = byId.values().stream().filter(e -> e.getManagerId() == null).collect(Collectors.toList());

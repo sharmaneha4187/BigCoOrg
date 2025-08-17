@@ -24,8 +24,9 @@ public class Employee {
     public String getId() { return id; }
     public String getFirstName() { return firstName; }
     public String getLastName() { return lastName; }
-    public String getManagerId() { return managerId; }
     public double getSalary() { return salary; }
+    public String getManagerId() { return managerId; }
+    
     public List<String> getDirectReports() { return directReports; }
 
 }
